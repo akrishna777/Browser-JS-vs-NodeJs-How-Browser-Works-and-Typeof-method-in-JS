@@ -1,0 +1,29 @@
+Video Summary - https://www.youtube.com/watch?v=SmE4OwHztCc&ab_channel=JSConf
+
+1. Components of a browser
+
+The browser's components are made up of 4 parts : 
+Bindings: These are components related to network handling of the browser
+Rendering : It manages the construction of the webpage onto the browser. 
+Platform: Manages the page responsiveness according to different OS and platforms
+JavaScript VM: Handles the scripts and javascript compilation process
+
+2. Parsing and DOM Creation:
+
+The Rendering is the most important function of a browser. It deals with parsing of the documents, creating trees and DOM structures, preparing a layout and color settings to completely assemble a structure of a webpage. When a html document is parsed it scans for all the html elements with the help of tokeniser, constructs a DOM tree and then executes the script in the document. The tokeniser creates a raw parse tree which is used to create a DOM tree. Note here that when parser hits the script tag then parsing is halted for that moment as the script can alter the document. It can reduce network latency and that's why it's recommended to put the script tag at the very bottom of the body tag (performance insight 1), so that it does not hamper the loading of the rest of the elements and can parse uninterrupted. It makes the rendering faster. If script cannot be put at the bottom we can make use of defer and async attributes inside the script.
+Just as A DOM(Document Object Model is created) a CSSOM (CSS- Object Model) is also created which is a tree structure of all the stylesheets or style elements of the document.
+
+3. Layout process and Positioning of Nodes:
+
+Layout is a process where the browser coputes where an element will appear on the page based on its relationship to other elements. When the browser tries to layout elements on the canvas it uses the RenderObject. This object has a reference to DOM node and decides the visual output by figuring out the geometric info, the layout diagrams and postions, paint and style attributes and other imagery computed metrics to assemble the whole website.All this information is layed out by calculating all the visual properties by combining all styles including default, external, style and inline css elements. It takes care of the complexity around matching rules for each elements and style computation. To put it simply the layout process computes where a node will be the screen. 
+
+4. Batch Layout:
+
+All this layout process is recursive and it's a batch layout process(in case of any changes the browser will intelligently batch changes and this will happen asyncronously). Batch layout helps in optimizing performance of the website as we can batch all our DOM changes and we can write code in a manner which will do all our reads in one go and all the writes in one go so that the browser doesn't have to recreate all the tree structures as changes in one element can trigger changes in other elements (Performance insight 2)
+
+5. Painting the Image of the Layout:
+ 
+The final part is painting the image of the layout which is created in the previous steps. The paint process of the browser includes taking all the information from the render tree and make calls to actually paint some visual output that the user is expecting on the page. The paint setup takes all the  render trees, creates layers and starts filling colors from the bottom up. It's an incremental process and builds up over 12 phases. The whole process is done over layers created from RenderObjects. This whole process is bulky and that's why to speed up our website performance we can use a technique i.e inlining all the critical CSS inside the style tag of html document of the most important parts of our website so browser can put something up fast on the screen. For E.g. The important text of a blog post should appear first followed by all the images, font styles, animations etc..(Performance insight 3).
+
+
+
