@@ -1,0 +1,29 @@
+Execute the below code and write your description in txt file:
+
+
+Code: typeof(1) --> Output: number
+Description: The data type of provided inside the typeof operator is a number as it is a numeric data type
+
+Code: typeof(1.1) --> Output: number
+Description: In javascript numbers also include floating point numbers. Hence here the type of a decimal number will also return a number data type.
+
+Code: typeof('1.1') --> Output: string
+Description: Here the data in enclosed within inverted commas. Anything enclosed within inverted commas on javascript is treated as a string in javascript.
+
+Code: typeof(true) --> Output: boolean
+Description: Boolean represents a logical entity and can have two values: true and false. This is the case with almost all programming languages including javascript. Hence here the datatype is boolean.
+
+Code: typeof(null) --> Output: null
+Description: In javascript the value null represents the intentional absence of any object value.If you see null (either assigned to a variable or returned by a function), then at that place should have been an object, but for some reason, an object wasn't created. But here, the typeOf null (null means a missing object) also evaluates to an object which is contradictory. It is a bug which was found in early implementations of javascript and this bug is still not fixed as fixing it would cause other programs written in javascript to result in errors or more bugs.
+
+Code: typeof(undefined) -->Output: undefined
+Description: Undefined is a primitive value automatically assigned to variables that have just been declared but no value is assigned to them. So here, typeOf undefined is also set to be undefined
+
+Code: typeof([]) --> Output: object
+Description: Square brackets is used to denote an array object in javascript.Arrays are composite data types in javascript. All composite datatypes are treated as objects in javascript. Hence here dataype is also on object.
+
+Code: typeof({}) --> Output: object
+Description: Curly brackets are used to denote objects in javascript. Here again object is also composite data type. Hence the result object.
+
+Code: typeof(NaN) --> Output: number
+Description: NaN stands for "Not a Number". The number type in JavaScript is a set of all number values, including "Not A Number", positive infinity and negative infinity. NaN is used for a number that cannot be expressed in terms of a real number. But it is still considered as a number. hence the typeOf NaN is number.
